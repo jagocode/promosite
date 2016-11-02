@@ -9,6 +9,10 @@ function promo_setup(){
     add_theme_support('automatic-feed-links');
     //add title tag
     add_theme_support('title-tag');
+    
+    register_nav_menus( array(
+        'primary' => __( 'Primary Menu', 'promosite' ),
+    ) );
 }
 add_action('after_setup_theme','promo_setup');
 
@@ -26,4 +30,6 @@ function promo_scripts(){
     
 }
 add_action('wp_enqueue_scripts','promo_scripts');
+
+require_once('navwalker.php');
 ?>
