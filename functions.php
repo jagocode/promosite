@@ -4,13 +4,25 @@ function images($images){
     echo get_template_directory_uri().'/images/'.$images;
 }
 
+function promo_setup(){
+    //add feed link support
+    add_theme_support('automatic-feed-links');
+    //add title tag
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme','promo_setup');
 
 function promo_scripts(){
     
     //add boostrap style
     wp_enqueue_style('bootstrap',get_template_directory_uri().'/css/bootstrap.min.css');
+    //add general style
+    wp_enqueue_style('generalcss',get_template_directory_uri().'/css/general.css');
     //add style to wordpress
     wp_enqueue_style('stylecss',get_stylesheet_uri());
+    
+    //adding bootstrap script
+    wp_enqueue_script('bootstrap',get_template_directory_uri().'/js/bootstrap.min.js',array('jquery'),'2016',true);
     
 }
 add_action('wp_enqueue_scripts','promo_scripts');
