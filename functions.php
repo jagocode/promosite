@@ -28,6 +28,8 @@ function promo_scripts(){
     //adding bootstrap script
     wp_enqueue_script('bootstrap',get_template_directory_uri().'/js/bootstrap.min.js',array('jquery'),'2016',true);
     
+    // adding my own lovely script
+    wp_enqueue_script('myscript',get_template_directory_uri().'/js/script.js',array('jquery'),'2016',true);
 }
 add_action('wp_enqueue_scripts','promo_scripts');
 
